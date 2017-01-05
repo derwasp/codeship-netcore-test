@@ -1,0 +1,5 @@
+app:
+  build:
+    image: app
+    dockerfile_path: codeship-dockerfile
+  add_docker: true

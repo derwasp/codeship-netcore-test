@@ -1,0 +1,5 @@
+FROM derwasp/docker-netcore
+RUN mkdir /app
+WORKDIR /app
+
+COPY . /app
