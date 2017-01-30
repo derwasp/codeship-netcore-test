@@ -1,0 +1,8 @@
+group Build
+  source https://nuget.org/api/v2
+  framework: <= net45
+
+  nuget FAKE
+  nuget GitVersion.CommandLine
+  nuget AWSSDK.ECR
+  github neoeinstein/Fake.Extra Docker.fs

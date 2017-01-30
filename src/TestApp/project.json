@@ -1,0 +1,56 @@
+{
+  "version": "0.0.1",
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.1.0"
+    },
+    "Microsoft.AspNetCore.Mvc": "1.1.0",
+    "Microsoft.AspNetCore.Routing": "1.1.0",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.1.0",
+    "Microsoft.AspNet.JsonPatch": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.0",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.1.0",
+    "Microsoft.Extensions.Configuration.Json": "1.1.0",
+    "Microsoft.Extensions.Logging": "1.1.0",
+    "Microsoft.Extensions.Logging.Console": "1.1.0",
+    "Microsoft.Extensions.Logging.Debug": "1.1.0",
+    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.0",
+    "AutoMapper.Extensions.Microsoft.DependencyInjection": "1.1.2",
+    "AutoMapper": "5.2.0",
+    "Swashbuckle": "6.0.0-beta902",
+    "JetBrains.Annotations": "10.2.1",
+    "System.Diagnostics.FileVersionInfo": "4.3.0"
+  },
+  "frameworks": {
+    "netcoreapp1.1": {
+      "imports": [
+        "dotnet5.6"
+      ]
+    }
+  },
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true,
+    "xmlDoc": true,
+    "compile": {
+      "includeFiles": [
+        "../../SharedAssemblyInfo.cs"
+      ]
+    }
+  },
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true
+    }
+  },
+  "publishOptions": {
+    "include": [
+      "wwwroot",
+      "**/*.cshtml",
+      "appsettings.json",
+      "hosting.json",
+      "web.config"
+    ]
+  }
+}

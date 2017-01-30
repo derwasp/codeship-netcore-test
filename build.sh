@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 
-echo "Running inside dind"
+FAKE_EXE=packages/build/FAKE/tools/FAKE.exe
 
-docker --version
+OS=${OS:-"unknown"}
+run() {
+  if [[ "$OS" != "Windows_NT" ]]
+  then
+    mono "$@"
+  else
+    "$@"
+  fi
+}
 
-docker run busybox echo hello
-
+./paket.sh restore
+run $FAKE_EXE build.fsx "$@"
