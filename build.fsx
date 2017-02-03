@@ -8,7 +8,7 @@
 #r "AWSSDK.Core.dll"
 #r "AWSSDK.ECR.dll"
 
-#load @"paket-files/build/neoeinstein/Fake.Extra/Docker.fs"
+#load @"paket-files/build/derwasp/Fake.Extra/Docker.fs"
 
 open System
 open System.IO
@@ -131,22 +131,15 @@ let healthCheck uri =
 let testDocker dockerImageName =
   let label = dockerRun Defaults.internalPort dockerImageName List.empty
   try
-    (label, "")
-    |> Inspect
-    |> dockerAsk
-    |> fun x -> x.Messages
-    |> String.concat Environment.NewLine
-    |> trace
-
-    let exposedPort = dockerGetHostPort Defaults.internalPort label
+    let remoteIp = dockerGetIpAddress label
     let rec doHealthCheck count =
-      let statusCode = healthCheck (sprintf "http://localhost:%i/v1/diagnostics" exposedPort)
+      let statusCode = healthCheck (sprintf "http://%s:%i/v1/diagnostics" remoteIp Defaults.internalPort)
       match statusCode with
       | Choice1Of2 body ->
         Choice1Of2 body
       | Choice2Of2 status ->
         printfn "Bad healthcheck (Status %i). Waiting 1s." status
-        System.Threading.Thread.Sleep 2000
+        System.Threading.Thread.Sleep 1000
         if count = 0 then
           Choice2Of2 ()
         else

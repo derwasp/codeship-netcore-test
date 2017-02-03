@@ -10,5 +10,5 @@ NUGET
     FAKE (4.45.1)
     GitVersion.CommandLine (3.6.4)
 GITHUB
-  remote: neoeinstein/Fake.Extra
-    Docker.fs (2355da21a3c8ecdb91f47b856debd91bae386d05)
+  remote: derwasp/Fake.Extra
+    Docker.fs (d4c9a015221453eddc77613ca78d68013c2ebfbb)

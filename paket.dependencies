@@ -5,4 +5,4 @@ group Build
   nuget FAKE
   nuget GitVersion.CommandLine
   nuget AWSSDK.ECR
-  github neoeinstein/Fake.Extra Docker.fs
+  github derwasp/Fake.Extra Docker.fs
